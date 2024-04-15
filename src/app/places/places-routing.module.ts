@@ -8,7 +8,8 @@ const routes: Routes = [
     path: 'tabs',
     component: PlacesPage,
     children: [
-      { path: 'discover',
+      {
+        path: 'discover',
         children: [
           {
             path: '',
