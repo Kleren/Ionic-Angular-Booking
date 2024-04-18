@@ -1,2 +1,2 @@
 # Ionic Angular Booking
-![Screenshot.png](https://src/assets/img/appscreenshot.png)
+![Screenshot.png](https://github.com/Kleren/Ionic-Angular-Booking/blob/master/src/assets/img/appscreenshot.png)
