@@ -18,11 +18,6 @@ const routes: Routes = [
           {
             path: ':placeId',
             loadChildren: () => import('./discover/place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
-          },
-          {
-            path: '',
-            redirectTo: '/places/tabs/discover',
-            pathMatch: 'full'
           }
         ]
       },
