@@ -15,7 +15,7 @@ export class PlacesService {
     ),
     new Place(
       'p2',
-      'L\Amour Toujours',
+      'L\'Amour Toujours',
       'A romantic place in Paris!',
       '../assets/img/paris.jpg',
       149.99
