@@ -1,7 +1,7 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <ion-menu-button id="m1"></ion-menu-button>
     </ion-buttons>
     <ion-title>Discover Places</ion-title>
   </ion-toolbar>
@@ -10,57 +10,56 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
     <ion-row>
-      <ion-col>
-        <div class="ion-text-center" size="12" size-sm="8" offset-sm="2">
-          <ion-card>
-            <ion-card-header>
-              <ion-card-subtitle>{{ loadedPlaces[0].price | currency }} / Night</ion-card-subtitle>
-              <ion-card-title>{{ loadedPlaces[0].title }}</ion-card-title>
-            </ion-card-header>
-            <ion-img [src]="loadedPlaces[0].imageUrl"></ion-img>
-            <ion-card-content>
-              <p>{{ loadedPlaces[0].description }}</p>
-            </ion-card-content>
-              <ion-button
-              fill="clear"
-              color="primary"
-              [routerLink]="[
-                '/',
-                'places',
-                'tabs',
-                'discover',
-                loadedPlaces[0].id
-                ]"
-                >
-                  More
-              </ion-button>
-          </ion-card>
-        </div>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="12" size-sm="8" offset-sm="2" text-center>
-        <ion-list>
-          <ion-item *ngFor="let place of loadedPlaces.slice(1)"
-          [routerLink]="[
-          '/',
-          'places',
-          'tabs',
-          'discover',
-          place.id
-          ]"
-          detail
+      <ion-col class="ion-text-center" size="12" sizeSm="8" offsetSm="2">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{ loadedPlaces[0].price | currency }} / Night</ion-card-subtitle>
+            <ion-card-title>{{ loadedPlaces[0].title }}</ion-card-title>
+          </ion-card-header>
+          <ion-img [src]="loadedPlaces[0].imageUrl"></ion-img>
+          <ion-card-content>
+            <p><ion-text>{{ loadedPlaces[0].description }}</ion-text></p>
+          </ion-card-content>
+          <ion-button
+            fill="clear"
+            color="primary"
+            [routerLink]="[
+              '/',
+              'places',
+              'tabs',
+              'discover',
+              loadedPlaces[0].id
+            ]"
           >
-            <ion-thumbnail slot="start">
-              <ion-img [src]="place.imageUrl"></ion-img>
-            </ion-thumbnail>
-            <ion-label>
-              <h2>{{ place.title }}</h2>
-              <p>{{ place.description }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+            More
+          </ion-button>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
+
+  <cdk-virtual-scroll-viewport
+    itemSize="71" minBufferPx="200" maxBufferPx="400">
+    <ion-list>
+      <ion-item
+        *cdkVirtualFor="let place of listedLoadedPlaces"
+        [routerLink]="[
+        '/',
+        'places',
+        'tabs',
+        'discover',
+        place.id
+        ]"
+          detail
+      >
+        <ion-thumbnail slot="start">
+          <ion-img [src]="place.imageUrl"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          <h2>{{ place.title }}</h2>
+          <p>{{ place.description }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </cdk-virtual-scroll-viewport>
 </ion-content>
