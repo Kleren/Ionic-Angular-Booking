@@ -18,7 +18,9 @@
       <ion-col size="12" sizeSm="8" offsetSm="2">
         <ion-list>
           <ion-item-sliding *ngFor="let offer of offers" #slidingItem>
+
             <app-offer-item [offer]="offer"></app-offer-item>
+
               <ion-item-options side="end">
                 <ion-item-option color="secondary" (click)="onEdit(offer.id, slidingItem)">
                   <ion-icon slot="icon-only" name="create"></ion-icon>
