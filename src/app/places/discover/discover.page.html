@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button id="m1"></ion-menu-button>
     </ion-buttons>
@@ -8,9 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-segment (ionChange)="onFilterUpdate($event)">
-    <ion-segment-button value="all">All Places</ion-segment-button>
-    <ion-segment-button value="bookable">Bookable Places</ion-segment-button>
+  <ion-segment (ionChange)="onFilterUpdate($event)" color="primary" fill="clear">
+    <ion-segment-button value="all" text-color="primary">All Places</ion-segment-button>
+    <ion-segment-button value="bookable" text-color="primary">Bookable Places</ion-segment-button>
   </ion-segment>
   <ion-grid>
     <ion-row>
